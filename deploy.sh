@@ -1,7 +1,7 @@
 #测试集群
-server=(192.168.130.33 192.168.130.34 192.168.130.35)
+server=(192.168.130.32 192.168.130.34 192.168.130.35)
 #分布式集群的SEED_NODES参数
-seeds="192.168.130.33:9003:40010,192.168.130.34:9003:40010,192.168.130.35:9003:40010"
+seeds="192.168.130.32:9003:40010,192.168.130.34:9003:40010,192.168.130.35:9003:40010"
 #打包的文件名
 snapshotName="cluster-0.11.0-SNAPSHOT"
 #本地的集群maven打包路径
@@ -33,6 +33,6 @@ rm -rf $snapshotName
 if $execute; then
     for ip in ${server[*]}
     do
-        ssh $user@$ip "cd ${serverDir}/${snapshotName};nohup sh sbin/start-node.sh >nohup.out 2>&1 &"
+        ssh $user@$ip "cd ${serverDir}/${snapshotName};nohup sh sbin/start-node.sh printgc >nohup.out 2>&1 &"
     done 
 fi
