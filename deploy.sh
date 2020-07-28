@@ -11,16 +11,16 @@ serverDir="txy_test"
 #服务器用户
 user="liurui"
 #更改iotdb-cluster.properties中的属性，用|隔开，格式为key=value，即key为参数名称，value为值的方式替代对应文件中的参数
-clusterConfig="SEED_NODES=${seeds}|REPLICA_NUM=3"
+clusterConfig="seed_nodes=${seeds}|default_replica_num=3"
 #更改iotdb-engine.properties中的属性，用|隔开，格式为key=value，即key为参数名称，value为值的方式替代对应文件中的参数
-engineConfig="enable_wal=false"
-#是否启动集群
+engineConfig=""
+#是否后台启动集群
 execute=true
 
 cp -rf $snapshotPath .
 for ip in ${server[*]}
 do
-    python3 update.py $snapshotName/conf/iotdb-cluster.properties "LOCAL_IP=${ip}|${clusterConfig}"
+    python3 update.py $snapshotName/conf/iotdb-cluster.properties "cluster_rpc_ip=${ip}|${clusterConfig}"
     python3 update.py $snapshotName/conf/iotdb-engine.properties $engineConfig
     tar -cvf $snapshotName.tar $snapshotName
     ssh $user@$ip "rm -rf ${serverDir};mkdir ${serverDir};"
@@ -33,6 +33,6 @@ rm -rf $snapshotName
 if $execute; then
     for ip in ${server[*]}
     do
-        ssh $user@$ip "cd ${serverDir}/${snapshotName};nohup sh sbin/start-node.sh printgc >nohup.out 2>&1 &"
+        ssh $user@$ip "cd ${serverDir}/${snapshotName};mkdir logs;nohup sh sbin/start-node.sh printgc >logs/nohup.out 2>&1 &"
     done 
 fi
