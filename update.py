@@ -69,8 +69,7 @@ def replace_property(file_name, from_regex, to_str, append_on_not_exists=True):
 
 if __name__ == "__main__":
     props = Properties(sys.argv[1]) 
-    paras = sys.argv[2]
-    if len(paras) != 0:
+    if len(sys.argv) > 2 and len(sys.argv) != 0:
         paras = sys.argv[2].split("|")
         for para in paras:
             kv = para.split("=")
