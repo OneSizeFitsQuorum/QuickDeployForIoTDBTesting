@@ -1,7 +1,4 @@
-#测试集群
-server=(192.168.130.33 192.168.130.34 192.168.130.35)
-#服务器用户
-user="liurui"
+source ./config.sh
 
 for ip in ${server[*]}
 do

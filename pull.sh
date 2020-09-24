@@ -1,11 +1,4 @@
-#测试集群
-server=(192.168.130.32 192.168.130.34 192.168.130.35)
-#服务器用户
-user="liurui"
-#从测试集群拉取得到的执行日志本地路径
-localLogDir="result"
-#测试集群的执行路径
-serverPath="~/txy_test/cluster-0.11.0-SNAPSHOT"
+source ./config.sh
 
 mkdir result
 for ip in ${server[*]}
