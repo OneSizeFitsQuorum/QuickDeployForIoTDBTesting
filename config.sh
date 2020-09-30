@@ -1,7 +1,7 @@
 #测试集群
-server=(192.168.130.33 192.168.130.34 192.168.130.35)
+server=(172.16.0.4 172.16.0.5)
 #分布式集群的SEED_NODES参数
-seeds="192.168.130.33:9003:40010:55560,192.168.130.34:9003:40010:55560,192.168.130.35:9003:40010:55560"
+seeds="172.16.0.4:9003:40010:55560,172.16.0.5:9003:40010:55560"
 #打包的文件名
 snapshotName="cluster-0.11.0-SNAPSHOT"
 #本地的集群maven打包路径
@@ -13,10 +13,12 @@ localLogDir="result"
 #服务器新建的文件夹名称
 serverDir="txy_test"
 #服务器用户
-user="liurui"
+user="root"
 #更改iotdb-cluster.properties中的属性，用|隔开，格式为key=value，即key为参数名称，value为值的方式替代对应文件中的参数
-clusterConfig="seed_nodes=${seeds}|is_enable_raft_log_persistence=false"
+clusterConfig="seed_nodes=${seeds}|is_enable_raft_log_persistence=false|default_replica_num=2|is_use_async_server=false|enable_auto_create_schema=false|is_use_async_applier=true"
 #更改iotdb-engine.properties中的属性，用|隔开，格式为key=value，即key为参数名称，value为值的方式替代对应文件中的参数
 engineConfig=""
 #是否后台启动集群
 execute=true
+#是否从本地推包
+push=true

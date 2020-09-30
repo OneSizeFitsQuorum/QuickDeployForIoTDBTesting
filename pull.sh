@@ -1,5 +1,6 @@
 source ./config.sh
 
+rm -rf result
 mkdir result
 for ip in ${server[*]}
 do
