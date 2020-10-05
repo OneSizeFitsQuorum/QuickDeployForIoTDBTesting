@@ -1,7 +1,7 @@
 #测试集群
-server=(172.16.0.4 172.16.0.5)
+server=(172.16.0.4 172.16.0.5 172.16.0.6 172.16.0.7)
 #分布式集群的SEED_NODES参数
-seeds="172.16.0.4:9003:40010:55560,172.16.0.5:9003:40010:55560"
+seeds="172.16.0.4:9003:40010:55560,172.16.0.5:9003:40010:55560,172.16.0.6:9003:40010:55560,172.16.0.7:9003:40010:55560"
 #打包的文件名
 snapshotName="cluster-0.11.0-SNAPSHOT"
 #本地的集群maven打包路径
@@ -20,5 +20,3 @@ clusterConfig="seed_nodes=${seeds}|is_enable_raft_log_persistence=false|default_
 engineConfig=""
 #是否后台启动集群
 execute=true
-#是否从本地推包
-push=true

@@ -1,6 +1,6 @@
 source config.sh
 
-if $push; then
+if [ "$1" != "np" ]; then
     cp -rf $snapshotPath .
     for ip in ${server[*]}
     do
