@@ -18,6 +18,6 @@ fi
 if $execute; then
     for ip in ${server[*]}
     do
-        ssh $user@$ip "cd ${serverDir}/${snapshotName};rm -rf logs;rm -rf data;mkdir logs;nohup sh sbin/start-node.sh printgc >logs/nohup.out 2>&1 &"
+        ssh $user@$ip "cd ${serverDir}/${snapshotName};rm -rf logs;rm -rf data;mkdir logs;source ~/.zshrc;nohup sh sbin/start-node.sh printgc >logs/nohup.out 2>&1 &"
     done 
 fi
