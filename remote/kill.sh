@@ -1,4 +1,4 @@
-source config.sh
+source ./config.sh
 
 for ip in ${server[*]}
 do

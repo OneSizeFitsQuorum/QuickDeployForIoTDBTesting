@@ -1,4 +1,4 @@
-source config.sh
+source ./config.sh
 
 #删除所有数据并重新拷贝
 rm -rf $snapshotPath/data $snapshotPath/logs

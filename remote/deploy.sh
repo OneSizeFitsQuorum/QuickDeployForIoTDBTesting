@@ -1,4 +1,4 @@
-source config.sh
+source ./config.sh
 
 if [ "$1" != "np" ]; then
     cp -rf $snapshotPath .
