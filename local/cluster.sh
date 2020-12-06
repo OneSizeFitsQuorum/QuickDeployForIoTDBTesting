@@ -7,10 +7,10 @@ cp -rf $snapshotPath ${snapshotPath}1
 cp -rf $snapshotPath ${snapshotPath}2
 
 #处理 jmx port 冲突
-sed -i -e 's/JMX_PORT="31999"/JMX_PORT="32000"/g' ${snapshotPath}1/conf/cluster-env.sh
-sed -i -e 's/JMX_PORT=31999/JMX_PORT=32000/g' ${snapshotPath}1/conf/cluster-env.bat
-sed -i -e 's/JMX_PORT="31999"/JMX_PORT="32001"/g' ${snapshotPath}2/conf/cluster-env.sh
-sed -i -e 's/JMX_PORT=31999/JMX_PORT=32001/g' ${snapshotPath}2/conf/cluster-env.bat
+sed -i -e 's/JMX_PORT="31999"/JMX_PORT="32000"/g' ${snapshotPath}1/conf/iotdb-env.sh
+sed -i -e 's/JMX_PORT=31999/JMX_PORT=32000/g' ${snapshotPath}1/conf/iotdb-env.bat
+sed -i -e 's/JMX_PORT="31999"/JMX_PORT="32001"/g' ${snapshotPath}2/conf/iotdb-env.sh
+sed -i -e 's/JMX_PORT=31999/JMX_PORT=32001/g' ${snapshotPath}2/conf/iotdb-env.bat
 
 #处理 cluster port 冲突
 sed -i -e 's/internal_meta_port=9003/internal_meta_port=9005/g' ${snapshotPath}1/conf/iotdb-cluster.properties
