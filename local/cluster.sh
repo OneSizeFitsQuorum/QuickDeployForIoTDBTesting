@@ -15,11 +15,9 @@ sed -i -e 's/JMX_PORT=31999/JMX_PORT=32001/g' ${snapshotPath}2/conf/iotdb-env.ba
 #处理 cluster port 冲突
 sed -i -e 's/internal_meta_port=9003/internal_meta_port=9005/g' ${snapshotPath}1/conf/iotdb-cluster.properties
 sed -i -e 's/internal_data_port=40010/internal_data_port=40012/g' ${snapshotPath}1/conf/iotdb-cluster.properties
-sed -i -e 's/cluster_rpc_port=55560/cluster_rpc_port=55561/g' ${snapshotPath}1/conf/iotdb-cluster.properties
 
 sed -i -e 's/internal_meta_port=9003/internal_meta_port=9007/g' ${snapshotPath}2/conf/iotdb-cluster.properties
 sed -i -e 's/internal_data_port=40010/internal_data_port=40014/g' ${snapshotPath}2/conf/iotdb-cluster.properties
-sed -i -e 's/cluster_rpc_port=55560/cluster_rpc_port=55562/g' ${snapshotPath}2/conf/iotdb-cluster.properties
 
 #处理 standalone port 冲突
 sed -i -e 's/rpc_port=6667/rpc_port=6668/g' ${snapshotPath}1/conf/iotdb-engine.properties

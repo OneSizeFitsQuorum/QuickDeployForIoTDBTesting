@@ -1,5 +1,5 @@
 #测试集群
-server=(192.168.130.32 192.168.130.33)
+server=()
 #分布式集群的 SEED_NODES 参数
 seeds="192.168.130.32:9003:40010:55560,192.168.130.33:9003:40010:55560"
 #服务器用户
@@ -7,7 +7,7 @@ user="liurui"
 #服务器新建的文件夹名称
 serverDir="txy_test"
 #打包的文件名
-snapshotName="cluster-0.12.0-SNAPSHOT"
+snapshotName="iotdb-cluster-0.12.0-SNAPSHOT"
 #本地 cluster 模块 maven 打包路径
 snapshotPath="/Users/txy/Study/incubator-iotdb/cluster/target/${snapshotName}"
 #测试集群的执行路径
