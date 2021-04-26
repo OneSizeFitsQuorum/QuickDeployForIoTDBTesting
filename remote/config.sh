@@ -7,7 +7,7 @@ user="liurui"
 #服务器新建的文件夹名称
 serverDir="txy_test"
 #打包的文件名
-snapshotName="iotdb-cluster-0.12.0-SNAPSHOT"
+snapshotName="iotdb-cluster-0.13.0-SNAPSHOT"
 #本地 cluster 模块 maven 打包路径
 snapshotPath="/Users/txy/Study/incubator-iotdb/cluster/target/${snapshotName}"
 #测试集群的执行路径
