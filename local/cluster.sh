@@ -16,6 +16,13 @@ sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapsho
 sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}1/conf/iotdb-cluster.properties
 sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}2/conf/iotdb-cluster.properties
 
+##处理 cluster_info_public_port 冲突 
+sed -i -e 's/#cluster_info_public_port=6567/cluster_info_public_port=6567/g' ${snapshotPath}/conf/iotdb-cluster.properties
+sed -i -e 's/#cluster_info_public_port=6567/cluster_info_public_port=6567/g' ${snapshotPath}1/conf/iotdb-cluster.properties
+sed -i -e 's/#cluster_info_public_port=6567/cluster_info_public_port=6567/g' ${snapshotPath}2/conf/iotdb-cluster.properties
+sed -i -e 's/cluster_info_public_port=6567/cluster_info_public_port=6568/g' ${snapshotPath}1/conf/iotdb-cluster.properties
+sed -i -e 's/cluster_info_public_port=6567/cluster_info_public_port=6569/g' ${snapshotPath}2/conf/iotdb-cluster.properties
+
 #处理 jmx port 冲突
 sed -i -e 's/JMX_PORT="31999"/JMX_PORT="32000"/g' ${snapshotPath}1/conf/iotdb-env.sh
 sed -i -e 's/JMX_PORT=31999/JMX_PORT=32000/g' ${snapshotPath}1/conf/iotdb-env.bat
