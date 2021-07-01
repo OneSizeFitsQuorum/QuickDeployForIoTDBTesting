@@ -20,10 +20,10 @@ sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapsho
 sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}3/conf/iotdb-cluster.properties
 
 #统一副本数
-sed -i -e 's/^default_replica_num=1$/default_replica_num=3/g' ${snapshotPath}/conf/iotdb-cluster.properties
-sed -i -e 's/^default_replica_num=1$/default_replica_num=3/g' ${snapshotPath}1/conf/iotdb-cluster.properties
-sed -i -e 's/^default_replica_num=1$/default_replica_num=3/g' ${snapshotPath}2/conf/iotdb-cluster.properties
-sed -i -e 's/^default_replica_num=1$/default_replica_num=3/g' ${snapshotPath}3/conf/iotdb-cluster.properties
+sed -i -e 's/^default_replica_num=3$/default_replica_num=1/g' ${snapshotPath}/conf/iotdb-cluster.properties
+sed -i -e 's/^default_replica_num=3$/default_replica_num=1/g' ${snapshotPath}1/conf/iotdb-cluster.properties
+sed -i -e 's/^default_replica_num=3$/default_replica_num=1/g' ${snapshotPath}2/conf/iotdb-cluster.properties
+sed -i -e 's/^default_replica_num=3$/default_replica_num=1/g' ${snapshotPath}3/conf/iotdb-cluster.properties
 
 ##处理 cluster_info_public_port 冲突 
 sed -i -e 's/#cluster_info_public_port=6567/cluster_info_public_port=6567/g' ${snapshotPath}/conf/iotdb-cluster.properties
