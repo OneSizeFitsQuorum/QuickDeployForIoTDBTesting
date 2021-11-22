@@ -7,8 +7,8 @@ if [ "$1" != "np" ]; then
         python3 update.py $snapshotName/conf/iotdb-cluster.properties "internal_ip=${ip}|${clusterConfig}"
         python3 update.py $snapshotName/conf/iotdb-engine.properties "rpc_address=${ip}|${engineConfig}"
         tar -cvf $snapshotName.tar $snapshotName
-        ssh $user@$ip "rm -rf ${serverDir}/${snapshotName};"
-        scp -r $snapshotName.tar $user@$ip:~/$serverDir
+        ssh $user@$ip "rm -rf ${serverDir};mkdir ${serverDir}"
+        scp -r $snapshotName.tar $user@$ip:$serverDir
         ssh $user@$ip "cd ${serverDir};tar -xvf ${snapshotName}.tar;rm ${snapshotName}.tar;"
         rm $snapshotName.tar
     done 

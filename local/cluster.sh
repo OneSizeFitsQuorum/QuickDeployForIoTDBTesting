@@ -2,7 +2,7 @@ source ./config.sh
 
 #删除所有数据并重新拷贝
 rm -rf $snapshotPath/data $snapshotPath/logs
-rm -rf ${snapshotPath}1 ${snapshotPath}2 ${snapshotPath}3
+rm -rf ${snapshotPath}1 ${snapshotPath}2 ${snapshotPath}3 
 cp -rf $snapshotPath ${snapshotPath}1
 cp -rf $snapshotPath ${snapshotPath}2
 cp -rf $snapshotPath ${snapshotPath}3
@@ -11,19 +11,19 @@ cp -rf $snapshotPath ${snapshotPath}3
 sed -i -e 's/^seed_nodes=127.0.0.1:9003$/seed_nodes=127.0.0.1:9003,127.0.0.1:9005,127.0.0.1:9007/g' ${snapshotPath}/conf/iotdb-cluster.properties
 sed -i -e 's/^seed_nodes=127.0.0.1:9003$/seed_nodes=127.0.0.1:9003,127.0.0.1:9005,127.0.0.1:9007/g' ${snapshotPath}1/conf/iotdb-cluster.properties
 sed -i -e 's/^seed_nodes=127.0.0.1:9003$/seed_nodes=127.0.0.1:9003,127.0.0.1:9005,127.0.0.1:9007/g' ${snapshotPath}2/conf/iotdb-cluster.properties
-sed -i -e 's/^seed_nodes=127.0.0.1:9003$/seed_nodes=127.0.0.1:9003,127.0.0.1:9005,127.0.0.1:9007/g' ${snapshotPath}3/conf/iotdb-cluster.properties
+
 
 ##打开 open_server_rpc_port 
-sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}/conf/iotdb-cluster.properties
-sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}1/conf/iotdb-cluster.properties
-sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}2/conf/iotdb-cluster.properties
-sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}3/conf/iotdb-cluster.properties
+# sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}/conf/iotdb-cluster.properties
+# sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}1/conf/iotdb-cluster.properties
+# sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}2/conf/iotdb-cluster.properties
+# sed -i -e 's/^open_server_rpc_port=false$/open_server_rpc_port=true/g' ${snapshotPath}3/conf/iotdb-cluster.properties
 
-#统一副本数
-sed -i -e 's/^default_replica_num=3$/default_replica_num=1/g' ${snapshotPath}/conf/iotdb-cluster.properties
-sed -i -e 's/^default_replica_num=3$/default_replica_num=1/g' ${snapshotPath}1/conf/iotdb-cluster.properties
-sed -i -e 's/^default_replica_num=3$/default_replica_num=1/g' ${snapshotPath}2/conf/iotdb-cluster.properties
-sed -i -e 's/^default_replica_num=3$/default_replica_num=1/g' ${snapshotPath}3/conf/iotdb-cluster.properties
+# #统一副本数
+# sed -i -e 's/^default_replica_num=1$/default_replica_num=3/g' ${snapshotPath}/conf/iotdb-cluster.properties
+# sed -i -e 's/^default_replica_num=1$/default_replica_num=3/g' ${snapshotPath}1/conf/iotdb-cluster.properties
+# sed -i -e 's/^default_replica_num=1$/default_replica_num=3/g' ${snapshotPath}2/conf/iotdb-cluster.properties
+# sed -i -e 's/^default_replica_num=1$/default_replica_num=3/g' ${snapshotPath}3/conf/iotdb-cluster.properties
 
 ##处理 cluster_info_public_port 冲突 
 sed -i -e 's/#cluster_info_public_port=6567/cluster_info_public_port=6567/g' ${snapshotPath}/conf/iotdb-cluster.properties
